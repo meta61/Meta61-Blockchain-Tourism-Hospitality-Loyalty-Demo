@@ -128,7 +128,7 @@ $_SESSION['apiResponses'] = $apiResponses;
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Meta61 Blockchain Demo</title>
+    <title>Meta61 Blockchain Demo 2</title>
     <style>
         body {
             background-color: #f2f2f2; /* Light gray background color */
