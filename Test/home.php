@@ -1,44 +1,44 @@
-// <?php
-// session_start();
+<?php
+session_start();
 
-// // Include config file
-// require_once "config.php";
-// $conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+// Include config file
+require_once "config.php";
+$conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
-// // Check connection
-// if ($conn->connect_error) {
-//     die("Connection failed: " . $conn->connect_error);
-// }
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-// if (isset($_POST['create'])) {
-//     $name = $_POST['name'];
-//     $amount= $_POST['amount'];
-//     $description = $_POST['description'];
-//     $sql = "INSERT INTO rewards (name,amount,description) VALUES ('$name', $amount, '$description')";
-//     $conn->query($sql);
-// }
+if (isset($_POST['create'])) {
+    $name = $_POST['name'];
+    $amount= $_POST['amount'];
+    $description = $_POST['description'];
+    $sql = "INSERT INTO rewards (name,amount,description) VALUES ('$name', $amount, '$description')";
+    $conn->query($sql);
+}
 
-// if (isset($_GET['delete'])) {
-//     $id = $_GET['delete'];
-//     $sql = "DELETE FROM rewards WHERE id=$id";
-//     $conn->query($sql);
-// }
+if (isset($_GET['delete'])) {
+    $id = $_GET['delete'];
+    $sql = "DELETE FROM rewards WHERE id=$id";
+    $conn->query($sql);
+}
 
-// if (isset($_POST['update'])) {
-//     $id = $_POST['id'];
-//     $name = $_POST['uname'];
-//     $amount= $_POST['uamount'];
-//     $description = $_POST['udescription'];
-//     $sql = "UPDATE rewards SET name='$name', amount=$amount, description='$description' WHERE id=$id";
-//     $conn->query($sql);
-// }
+if (isset($_POST['update'])) {
+    $id = $_POST['id'];
+    $name = $_POST['uname'];
+    $amount= $_POST['uamount'];
+    $description = $_POST['udescription'];
+    $sql = "UPDATE rewards SET name='$name', amount=$amount, description='$description' WHERE id=$id";
+    $conn->query($sql);
+}
 
-// $result = $conn->query("SELECT * FROM rewards");
+$result = $conn->query("SELECT * FROM rewards");
 
-// $currentUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-// //echo "The current location is: $currentUrl";
+$currentUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+//echo "The current location is: $currentUrl";
 
-// ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
