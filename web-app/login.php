@@ -1,5 +1,5 @@
 <?php
-//session_start();
+session_start();
 
 // Check if the user is already logged in, redirect to home page if true
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
