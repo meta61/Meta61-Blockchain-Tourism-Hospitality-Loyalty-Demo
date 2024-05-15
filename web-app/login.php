@@ -67,6 +67,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             //API Login
                             $_SESSION['registerResponse'] = registerUser($username, "Org1", "Hotel");
 
+                            $jresponse = json_decode( $_SESSION['registerResponse'], true);
+                            $_SESSION["token"] = $jresponse['token'];
+
                             // Redirect user to home page
                             header("location: home.php");
                         } else{
@@ -140,7 +143,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             color: red;
         }
 
-        .heading {
+        .heading2 {
             display: none;
         }
 
@@ -153,7 +156,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <div class="wrapper">
         <h2>Login</h2>
         <p>Please fill in your credentials to login.</p>
-        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="<?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <label>Username</label>
                 <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">

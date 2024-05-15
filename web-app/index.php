@@ -1,12 +1,14 @@
 <?php
 session_start();
 
+$_SESSION['host']= 'http://np-bc-meta61.eastus.cloudapp.azure.com:4000';
+
 // Initialize an array to store API responses
 $apiResponses = isset($_SESSION['apiResponses']) ? $_SESSION['apiResponses'] : [];
 
 // Function to register user
 function registerUser($username, $orgName, $role) {
-    $url = 'https://sandbox.bc.meta61.com.au/users';
+    $url = $_SESSION['host'].'/users';
     $data = array(
         'username' => $username,
         'orgName' => $orgName,
@@ -27,7 +29,7 @@ function registerUser($username, $orgName, $role) {
 
 // Function to add a car
 function addCar($carId, $make, $model, $color, $owner, $token) {
-    $url = 'https://sandbox.bc.meta61.com.au/channels/mychannel/chaincodes/fabcar';
+    $url = $_SESSION['host'].'/channels/mychannel/chaincodes/fabcar';
     $data = array(
         "fcn" => "createCar",
         "peers" => ["peer0.org1.example.com", "peer0.org2.example.com"],
@@ -45,7 +47,7 @@ function addCar($carId, $make, $model, $color, $owner, $token) {
 
 // Function to get history for asset
 function getAssetHistory($assetId, $token) {
-    $url = 'https://sandbox.bc.meta61.com.au/channels/mychannel/chaincodes/fabcar';
+    $url = $_SESSION['host'].'/channels/mychannel/chaincodes/fabcar';
     $data = array(
         "fcn" => "getHistoryForAsset",
         "peers" => ["peer0.org1.meta61.com.au", "peer0.org2.meta61.com.au"],
@@ -128,7 +130,7 @@ $_SESSION['apiResponses'] = $apiResponses;
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Meta61 Blockchain Demo</title>
+    <title>Blockchain Loyalty Demo</title>
     <style>
         body {
             background-color: #f2f2f2; /* Light gray background color */
@@ -152,12 +154,12 @@ $_SESSION['apiResponses'] = $apiResponses;
             box-sizing: border-box; /* Include padding and border in the width calculation */
         }
         input[type="submit"] {
-            background-color: #4CAF50; /* Green submit button */
+            background-color: #574caf; /* Green submit button */
             color: white; /* White text color */
             cursor: pointer; /* Change cursor to pointer on hover */
         }
         input[type="submit"]:hover {
-            background-color: #45a049; /* Dark green hover color */
+            background-color: #262149; /* Dark green hover color */
         }
         p {
             margin-bottom: 10px; /* Add some space between paragraphs */
@@ -166,7 +168,7 @@ $_SESSION['apiResponses'] = $apiResponses;
 </head>
 <body>
 
-<h1>Meta61 Blockchain Demo</h1>
+<h1>Blockchain Loyalty Demo</h1>
 
 <h2>Register User</h2>
 <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
