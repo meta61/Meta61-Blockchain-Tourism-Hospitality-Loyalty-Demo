@@ -74,8 +74,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["token"] = $jresponse['token'];
 
                             // Redirect user to home page
-                            header("location: ". dirname($currentUrl) ."/home.php", true, 301);
-                            exit();
+                            //header("location: ". echo dirname($currentUrl) ."/home.php", true, 301);
+                            //exit;
+                            echo "<script>location.href='home.php';</script>"; 
                         } else{
                             // Password is not valid, display a generic error message
                             $login_err = "Invalid username or password.";
