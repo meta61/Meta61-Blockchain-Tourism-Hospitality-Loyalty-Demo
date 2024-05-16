@@ -71,7 +71,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["token"] = $jresponse['token'];
 
                             // Redirect user to home page
-                            header("location: https://loyaltyblockchaindemo.azurewebsites.net/web-app/home.php");
+                            header("location: home.php");
+                            exit;
                         } else{
                             // Password is not valid, display a generic error message
                             $login_err = "Invalid username or password.";
