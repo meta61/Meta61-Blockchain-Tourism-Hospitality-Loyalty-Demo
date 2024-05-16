@@ -1,8 +1,8 @@
 <?php
 // Database configuration
-define('DB_SERVER', '127.0.0.1');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
+define('DB_SERVER', 'mysql-meta61.mysql.database.azure.com');
+define('DB_USERNAME', 'mysql_root');
+define('DB_PASSWORD', 'Meta61@#');
 define('DB_NAME', 'example');
 
 // Attempt to connect to the database
