@@ -305,19 +305,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['printSessionInfo'])) {
     ?>
     <table>
         <tr>
+            <th>Date</th>
             <th>URL</th>
-            <th>request_data</th>
-            <th>response_data</th>
-            <th>date</th>
+            <th>Request_data</th>
+            <th>Response_data</th>            
         </tr>
         <?php 
         $result = $conn->query("SELECT * FROM api_logs ORDER BY id DESC LIMIT 10");
         while ($row = $result->fetch_assoc()) { ?>
             <tr>
+                <td><?= $row['created_at'] ?></td>
                 <td><?= $row['api_url'] ?></td>
                 <td><?= $row['request_data'] ?></td>
-                <td><?= $row['response_data'] ?></td>
-                <td><?= $row['created_at'] ?></td>
+                <td><?= $row['response_data'] ?></td>              
                 
             </tr>
         <?php } ?>
