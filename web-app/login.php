@@ -151,6 +151,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         .content {
             display: none;
         }
+        
+        .content2{
+            display: none;
+        }
     </style>
 </head>
 <body>
