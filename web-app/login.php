@@ -75,7 +75,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                             // Redirect user to home page
                             header("location: ". dirname($currentUrl) ."/home.php", true, 301);
-                            exit;
+                            die();
                         } else{
                             // Password is not valid, display a generic error message
                             $login_err = "Invalid username or password.";
