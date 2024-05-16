@@ -12,6 +12,9 @@ require_once "config.php";
 // Include aoi configuration
 require_once "log.php";
 
+$currentUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+//echo "The current location is: $currentUrl";
+
 // Define variables and initialize with empty values
 $username = $password = "";
 $username_err = $password_err = $login_err = "";
@@ -71,7 +74,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["token"] = $jresponse['token'];
 
                             // Redirect user to home page
-                            header("location: home.php", true, 301);
+                            header("location: ". echo dirname($currentUrl) ."/home.php", true, 301);
                             exit;
                         } else{
                             // Password is not valid, display a generic error message
@@ -151,7 +154,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         .content {
             display: none;
         }
-        
+
         .content2{
             display: none;
         }
