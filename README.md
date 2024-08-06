@@ -1,4 +1,4 @@
-# Meta61-Blockchain-Loyalty-Demo
+# Meta61-Blockchain-Tourism-Hospitality-Loyalty-Demo
 Meta61 Private Blockchain Loyalty Whitepaper and Prototype
 
 The demo prototype can be accessed from:
